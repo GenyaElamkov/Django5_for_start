@@ -21,5 +21,5 @@ def contact(request):
 #     return HttpResponse(f"<h2>Имя: {name}. Возраст: {age}</h2>")
 
 
-def user(request, name, age):
+def user(request, name="UserNone", age=0):
     return HttpResponse(f"<h2>Имя: {name}. Возраст: {age}</h2>")
