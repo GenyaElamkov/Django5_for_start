@@ -1,22 +1,25 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 
 
 def index(request):
-    return HttpResponse('Главная <b>main_app</b>')
-
-def accounts(request, name='NoName', age=0):
-    return HttpResponse(f'Имя: {name}, Возраст: {age}')
-
-def home(request):
-    return HttpResponse("<h2>Домашняя страница</h2>")
+    return HttpResponse("Index")
 
 
-def message(request, category='Программирование', subcategory='Python', theme='Django 4', number=12):
-    return HttpResponse(f"""<h2>Сообщение </h2>
-                        <ul>
-                            <li>Категория: {category}</li>
-                            <li>Подкатегория: {subcategory}</li>
-                            <li>Тема: {theme}</li>
-                            <li>Номер сообщения: {number}</li>
-                        </ul>
-""")
+def about(request):
+    return HttpResponse("About")
+
+
+def contact(request):
+    return HttpResponseRedirect("/about/")
+
+
+def details(request):
+    return HttpResponsePermanentRedirect("/")
+
+
+def support(request):
+    return HttpResponseRedirect("/contact/")
+
+
+def about(request):
+    return HttpResponsePermanentRedirect("/")
