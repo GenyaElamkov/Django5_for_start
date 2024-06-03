@@ -2,7 +2,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('Главная')
+    return HttpResponse('Главная <b>main_app</b>')
 
 def accounts(request, name='NoName', age=0):
     return HttpResponse(f'Имя: {name}, Возраст: {age}')
