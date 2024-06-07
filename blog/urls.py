@@ -1,7 +1,8 @@
 from django.urls import path, re_path, include
 from blog import views
-
-
+from django.urls import path
+from django.views.generic import TemplateView
+from blog import views
 
 # product_patterns = [
 #     path("", views.products),
@@ -11,9 +12,31 @@ from blog import views
 #     # path("top/", views.top),
 # ]
 
+# Использование TemplateView, что бы сразу вернуть содержимое шаблона
+# urlpatterns = [
+#     path("", views.index),
+#     path("about/", TemplateView.as_view(template_name="blog/about.html")),
+#     path("contact/", TemplateView.as_view(template_name="blog/contact.html")),
+# ]
+
+# urlpatterns = [
+#     path('', views.index),
+#     path("about/", TemplateView.as_view(template_name="blog/about.html", extra_context={"header": "О сайте"})),
+#     path('contact/', TemplateView.as_view(template_name="blog/contact.html")),
+# ]
+
+# Расширение шаблонов НТМL-страниц на основе базового шаблона
 
 urlpatterns = [
     path("", views.index),
+    path("about/", views.about),
+]
+
+
+
+
+# urlpatterns = [
+#     path("", views.index),
     # path("index/<int:id>/", views.index),
     # path("access/<int:age>/", views.access),
     # path("user/", views.user),
@@ -34,5 +57,4 @@ urlpatterns = [
     # re_path(r'^user/(?P<name>\D+)/', views.user),
     # re_path(r'^user/(?P<age>\d+)', views.user),
     # re_path(r'^user/', views.user),
-
-]
+# ]

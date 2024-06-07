@@ -11,8 +11,15 @@ from django.template.response import TemplateResponse
 from django.template import loader
 
 
-# def index(request):
+def index(request):
+    return render(request, "blog/index.html")
 
+
+def about(request):
+    return render(request, "blog/about.html")
+
+
+# def index(request):
 # return render(request, "blog/index.html", context={'my_variable': 'Hello, world!'})
 # response = TemplateResponse(request, loader.get_template("blog/index.html"))
 # response.context['my_variable'] = 'Hello, world!'
@@ -20,20 +27,20 @@ from django.template import loader
 
 
 # Шаблоны
-def index(request):
-    # Передача в шаблон сложных данных
-    header = "Данные пользователя"  # обычная переменная
-    langs = ["Python", "Java", "C#"]  # список
-    user = {"name": "Tom", "age": 23}  # словарь
-    address = ("Абрикосовая", 23, 45)  # кортеж
+# def index(request):
+#     # Передача в шаблон сложных данных
+#     header = "Данные пользователя"  # обычная переменная
+#     langs = ["Python", "Java", "C#"]  # список
+#     user = {"name": "Tom", "age": 23}  # словарь
+#     address = ("Абрикосовая", 23, 45)  # кортеж
 
-    data = {"header": header, "langs": langs, "user": user, "address": address}
-    return render(request, "blog/index.html", context=data)
+#     data = {"header": header, "langs": langs, "user": user, "address": address}
+#     return render(request, "blog/index.html", context=data)
 
 
-def contacts(request):
-    data = {"data": "Телефон: +79123456789, E-Mail: admin@email.com"}
-    return render(request, "contacts.html", context=data)
+# def contacts(request):
+#     data = {"data": "Телефон: +79123456789, E-Mail: admin@email.com"}
+#     return render(request, "contacts.html", context=data)
 
 
 # def profile(request):
@@ -41,10 +48,10 @@ def contacts(request):
 #     return render(request, "profile.html", context=profile_data)
 
 
-def profile(request):
-    li = ['name', 'age', 'phone', 'email']
-    data = {key: request.GET.get(key, None) for key in li}
-    return render(request, 'profile.html', context=data)
+# def profile(request):
+#     li = ['name', 'age', 'phone', 'email']
+#     data = {key: request.GET.get(key, None) for key in li}
+#     return render(request, 'profile.html', context=data)
 
 
 # def index(request):
