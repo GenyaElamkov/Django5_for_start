@@ -11,12 +11,29 @@ from django.template.response import TemplateResponse
 from django.template import loader
 
 
+# def index(request):
+#     return render(request, "blog/index.html", context={'site': "Stepik.org"})
+
 def index(request):
-    return render(request, "blog/index.html")
+    # user_list = [{'name': 'Дмитрий', 'experience': 9},
+    #          {'name': 'Павел',   'experience': 5},
+    #          {'name': 'Алексей', 'experience': 3},
+    #          {'name': 'Иван',    'experience': 0},
+    #          {'name': 'Денис',   'experience': 2},
+    #          {'name': 'Игорь',   'experience': 7},
+    #          {'name': 'Руслан',  'experience': 1},
+    #          {'name': 'Евгений', 'experience': 4},
+    #          {'name': 'Андрей',  'experience': 2},
+    #          {'name': 'Николай', 'experience': 8}]
+    
+    user_list = [1, 2,3, 4, 5]
+
+    return render(request, "blog/index.html", context={'user_list': user_list})
 
 
 def about(request):
-    return render(request, "blog/about.html")
+    return render(request, "blog/about.html", context={'site': "Stepik"})
+
 
 
 # def index(request):

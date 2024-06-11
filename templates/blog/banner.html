@@ -1,2 +1,53 @@
-{% comment %} <div>Рекламный баннер!!!</div> {% endcomment %}
-<div>{{ tutorial }} на {{ site }}</div>
+{% comment %} <div>Рекламный баннер!!!</div>
+
+{% comment %} Lesson 2.7 step 3 {% endcomment %}
+{% comment %} <div>{{ tutorial }} на {{ site }}</div> {% endcomment %}
+
+
+{% comment %} Lesson 2.7 step 4 {% endcomment %}
+<div>Руководство по {{ tutorial }} на {{ site }}</div>
+
+<h2>Имя пользователя: {{ user_name }}</h2>
+
+
+{% comment %} profile_data={'name': 'Павел', 'age': 45, 'phone': '+79234567891', 'email': 'pavel@pavel.com'} {% endcomment %}
+profile_data=['Павел', 45, '+79234567891', 'pavel@pavel.com']
+{% comment %} {% with profile_data=profile_data %} {% endcomment %}
+{% with name=profile_data.0 age=profile_data.1 phone=profile_data.2 email=profile_data.3 %}
+
+<h2>Профиль пользователя</h2>
+<ul>
+    <li>Имя: {{ name }}</li>
+    <li>Возраст: {{ age }}</li>
+    <li>Телефон: {{ phone }}</li>
+    <li>E-Mail: {{ email }}</li>
+</ul>
+{% endwith %}
+
+
+<h2>Сегодня {% now "d.m.y" %}, время {% now "H:i" %}</h2>
+
+{% with name='Павел' experience=5 %}
+<h2>Сотрудник {{ name }} работает {% if experience < 5 %}меньше 5ти лет{% else %}5ть или больше лет{% endif %}.</h2>
+{% endwith %}
+
+<h2>Список сотрудников</h2>
+<ol>
+    {% for name in user_list %}
+    <li>{{ name }}</li>
+    {% endfor %}
+</ol>
+
+{% comment %} <h2>Новые сотрудники</h2>
+<ol>
+{% for elem in user_lists %}
+    {{ elem }}
+    {% if elem.experience <= 2 %}
+        <li>{{ elem.name }}</li>       
+    {% endif %}
+{% endfor %}
+</ol> {% endcomment %}
+
+{% for elem in user_list %}
+    {{ elem }}
+{% endfor %}
