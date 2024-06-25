@@ -8,7 +8,8 @@
     <div><a href="/">Главная</a> | <a href="/about">О нас</a></div>
     <h1>{% block header %}{% endblock header %}</h1>
     <div>{% block content %}{% endblock content %}</div>
-    {% include "blog/banner.html" with tutorial='Django' only %}
+    {% comment %} {% include "blog/banner.html" with tutorial='Django' only %} {% endcomment %}
+    {% include "blog/banner.html" with tutorial='Django' %}
     <div>MyCorp. 2023. All rights reserved.</div>
 </body>
 </html>

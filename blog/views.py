@@ -15,18 +15,18 @@ from django.template import loader
 #     return render(request, "blog/index.html", context={'site': "Stepik.org"})
 
 def index(request):
-    # user_list = [{'name': 'Дмитрий', 'experience': 9},
-    #          {'name': 'Павел',   'experience': 5},
-    #          {'name': 'Алексей', 'experience': 3},
-    #          {'name': 'Иван',    'experience': 0},
-    #          {'name': 'Денис',   'experience': 2},
-    #          {'name': 'Игорь',   'experience': 7},
-    #          {'name': 'Руслан',  'experience': 1},
-    #          {'name': 'Евгений', 'experience': 4},
-    #          {'name': 'Андрей',  'experience': 2},
-    #          {'name': 'Николай', 'experience': 8}]
+    user_list = [{'name': 'Дмитрий', 'experience': 9},
+             {'name': 'Павел',   'experience': 5},
+             {'name': 'Алексей', 'experience': 3},
+             {'name': 'Иван',    'experience': 0},
+             {'name': 'Денис',   'experience': 2},
+             {'name': 'Игорь',   'experience': 7},
+             {'name': 'Руслан',  'experience': 1},
+             {'name': 'Евгений', 'experience': 4},
+             {'name': 'Андрей',  'experience': 2},
+             {'name': 'Николай', 'experience': 8}]
     
-    user_list = [1, 2,3, 4, 5]
+    # user_list = [1, 2,3, 4, 5]
 
     return render(request, "blog/index.html", context={'user_list': user_list})
 

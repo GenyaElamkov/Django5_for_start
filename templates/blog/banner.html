@@ -5,36 +5,38 @@
 
 
 {% comment %} Lesson 2.7 step 4 {% endcomment %}
-<div>Руководство по {{ tutorial }} на {{ site }}</div>
+{% comment %} <div>Руководство по {{ tutorial }} на {{ site }}</div>
 
-<h2>Имя пользователя: {{ user_name }}</h2>
+<h2>Имя пользователя: {{ user_name }}</h2> {% endcomment %}
 
 
 {% comment %} profile_data={'name': 'Павел', 'age': 45, 'phone': '+79234567891', 'email': 'pavel@pavel.com'} {% endcomment %}
-profile_data=['Павел', 45, '+79234567891', 'pavel@pavel.com']
+{% comment %} profile_data=['Павел', 45, '+79234567891', 'pavel@pavel.com'] {% endcomment %}
 {% comment %} {% with profile_data=profile_data %} {% endcomment %}
-{% with name=profile_data.0 age=profile_data.1 phone=profile_data.2 email=profile_data.3 %}
+{% comment %} {% with name=profile_data.0 age=profile_data.1 phone=profile_data.2 email=profile_data.3 %} {% endcomment %}
 
-<h2>Профиль пользователя</h2>
+{% comment %} <h2>Профиль пользователя</h2>
 <ul>
     <li>Имя: {{ name }}</li>
     <li>Возраст: {{ age }}</li>
     <li>Телефон: {{ phone }}</li>
     <li>E-Mail: {{ email }}</li>
 </ul>
-{% endwith %}
+{% endwith %} {% endcomment %}
 
 
-<h2>Сегодня {% now "d.m.y" %}, время {% now "H:i" %}</h2>
+{% comment %} <h2>Сегодня {% now "d.m.y" %}, время {% now "H:i" %}</h2> {% endcomment %}
 
-{% with name='Павел' experience=5 %}
+{% comment %} {% with name='Павел' experience=5 %}
 <h2>Сотрудник {{ name }} работает {% if experience < 5 %}меньше 5ти лет{% else %}5ть или больше лет{% endif %}.</h2>
-{% endwith %}
+{% endwith %} {% endcomment %}
 
 <h2>Список сотрудников</h2>
 <ol>
-    {% for name in user_list %}
-    <li>{{ name }}</li>
+    {% for user in user_list %}
+        {% if user.experience <= 2 %}
+            <li>{{ user.name }}</li>
+        {% endif %}
     {% endfor %}
 </ol>
 
@@ -47,7 +49,7 @@ profile_data=['Павел', 45, '+79234567891', 'pavel@pavel.com']
     {% endif %}
 {% endfor %}
 </ol> {% endcomment %}
-
+{% comment %} 
 {% for elem in user_list %}
     {{ elem }}
-{% endfor %}
+{% endfor %} {% endcomment %}

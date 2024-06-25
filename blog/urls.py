@@ -27,11 +27,16 @@ from blog import views
 
 # Расширение шаблонов НТМL-страниц на основе базового шаблона
 
-urlpatterns = [
-    path("", views.index),
-    path("about/", views.about),
-]
+# urlpatterns = [
+#     path("", views.index),
+#     path("about/", views.about),
+# ]
 
+# Тестирование
+urlpatterns = [
+    path("", views.index, name="home"),
+    path("about/", views.about, name="about"),
+]
 
 
 
